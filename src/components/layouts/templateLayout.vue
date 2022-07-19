@@ -1,21 +1,18 @@
 <template>
-    <div class="template">
-        <router-view/>
-    </div>
+  <div class="template">
+    <router-view />
+  </div>
 </template>
 
 <script>
 export default {
-    setup () {
-        
-
-        return {}
-    }
-}
+  setup() {
+    return {};
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-.template{
+.template {
 }
-
 </style>

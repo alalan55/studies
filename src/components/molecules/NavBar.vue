@@ -10,7 +10,7 @@
       </figure>
 
       <div class="nav__icon__modal" v-show="showMenu">
-        <ModalMenu />
+        <ModalMenu @close="openOrCloseMenu" />
       </div>
     </div>
   </nav>
@@ -27,7 +27,9 @@ export default {
     const showMenu = ref(false);
 
     const openOrCloseMenu = () => {
-      showMenu.value == true ? (showMenu.value = false) : (showMenu.value = true);
+      showMenu.value == true
+        ? (showMenu.value = false)
+        : (showMenu.value = true);
     };
 
     return { showMenu, openOrCloseMenu };
@@ -77,9 +79,8 @@ export default {
       }
     }
     &__modal {
-    //   border: 2px solid red;
       position: absolute;
-      bottom: -35px;
+      top: 35px;
       width: 200px;
       right: 0;
     }
