@@ -1,7 +1,5 @@
 <template>
-  <templateWrapper title="Data provider">
-   
-  </templateWrapper>
+  <templateWrapper title="Data provider" :description="text"> </templateWrapper>
 </template>
 
 <script>
@@ -11,7 +9,8 @@ export default {
     templateWrapper,
   },
   setup() {
-    return {};
+    const text = `Estudo sobre data provider component. Consumo de api para pegar um lugar diferente, utilizando o concecito de data provider pattern.`;
+    return { text };
   },
 };
 </script>
