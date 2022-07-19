@@ -7,15 +7,21 @@ import NavBar from "@/components/molecules/NavBar.vue";
 <template>
   <div class="wrapper">
     <NavBar />
-
-    <div class="wrapepr__content">
+    <div class="wrapper__content">
       <RouterView />
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
+@import "@/assets/scss/utilities";
 .wrapper {
-  border: 1px solid red;
+  &__content {
+    position: relative;
+    margin-top: $navHeight;
+    padding: $s1;
+    background: $blue-5;
+    min-height: calc(100vh - $navHeight);
+  }
 }
 </style>
