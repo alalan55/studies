@@ -4,17 +4,25 @@
       <span> Studies </span>
     </div>
     <div class="nav__icon">
-      <figure>
-        <img src="/img/menu.svg" alt="Menu" />
+      <figure @click="openOrCloseMenu()">
+        <img v-if="!showMenu" src="/img/menu.svg" alt="Menu" />
+        <img v-else src="/img/close.svg" alt="Close menu" />
       </figure>
     </div>
   </nav>
 </template>
 
 <script>
+import { ref } from "vue";
 export default {
   setup() {
-    return {};
+    const showMenu = ref(false);
+
+    const openOrCloseMenu = () =>{
+        showMenu.value == true ? showMenu.value = false : showMenu.value = true
+    }
+
+    return { showMenu, openOrCloseMenu };
   },
 };
 </script>
