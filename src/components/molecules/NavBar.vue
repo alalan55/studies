@@ -8,19 +8,27 @@
         <img v-if="!showMenu" src="/img/menu.svg" alt="Menu" />
         <img v-else src="/img/close.svg" alt="Close menu" />
       </figure>
+
+      <div class="nav__icon__modal" v-show="showMenu">
+        <ModalMenu />
+      </div>
     </div>
   </nav>
 </template>
 
 <script>
 import { ref } from "vue";
+import ModalMenu from "./ModalMenu.vue";
 export default {
+  components: {
+    ModalMenu,
+  },
   setup() {
     const showMenu = ref(false);
 
-    const openOrCloseMenu = () =>{
-        showMenu.value == true ? showMenu.value = false : showMenu.value = true
-    }
+    const openOrCloseMenu = () => {
+      showMenu.value == true ? (showMenu.value = false) : (showMenu.value = true);
+    };
 
     return { showMenu, openOrCloseMenu };
   },
@@ -53,6 +61,7 @@ export default {
     }
   }
   &__icon {
+    position: relative;
     figure {
       width: 30px;
       height: 30px;
@@ -66,6 +75,13 @@ export default {
         height: 90%;
         object-fit: contain;
       }
+    }
+    &__modal {
+    //   border: 2px solid red;
+      position: absolute;
+      bottom: -35px;
+      width: 200px;
+      right: 0;
     }
   }
 }
