@@ -1,10 +1,10 @@
 <template>
-  <templateWrapper title="Data provider" :description="text">
+  <template-wrapper title="Data provider" :description="text">
     <!-- IMPORTAÇÃO DO COMPONENTE PROVEDOR E CHAMA O SLOT DEFAULT CRIADO DESESTRUTURANDO OS DADOS RECEBIDOS -->
-    <providerComponent :url="url" v-slot="{ res: response, loading }">
+    <provider-component :url="url" v-slot="{ res: response, loading }">
       <place-card :info="response" :loading="loading" />
-    </providerComponent>
-  </templateWrapper>
+    </provider-component>
+  </template-wrapper>
 </template>
 
 <script>
