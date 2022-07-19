@@ -58,8 +58,10 @@ export default {
 
   &__logo {
     span {
-      font-weight: normal;
+      font-weight: 800;
       font-size: 1.1em;
+      text-transform: uppercase;
+      color: $blue-0;
     }
   }
   &__icon {
