@@ -1,11 +1,15 @@
 <template>
-  <div>
-    <h1>Data provider</h1>
-  </div>
+  <templateWrapper title="Data provider">
+   
+  </templateWrapper>
 </template>
 
 <script>
+import templateWrapper from "@/components/bosons/templateWrapper.vue";
 export default {
+  components: {
+    templateWrapper,
+  },
   setup() {
     return {};
   },

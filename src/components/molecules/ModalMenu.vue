@@ -16,7 +16,6 @@ import { useRouter } from "vue-router";
 import { navigation } from "@/utils/navigation";
 export default {
   setup(props, { emit }) {
-
     const router = useRouter();
     const routesArr = ref([]);
 
@@ -24,7 +23,7 @@ export default {
 
     const goTo = (path) => router.push({ name: path });
     const close = () => emit("close");
-    
+
     return { routesArr, goTo, close };
   },
 };
@@ -34,9 +33,7 @@ export default {
 @import "@/assets/scss/utilities";
 
 .menu {
-  border: 1px solid;
   width: 100%;
-
   background: rgba(255, 255, 255, 1);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.09);
   backdrop-filter: blur(8.5px);
