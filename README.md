@@ -1,4 +1,8 @@
-# studies
+# Studies
+
+Aplicação criada com intuito de aprimoar meus conhecimentos no vue e seu ecossistema, será criada uma página para cada asunto abordado. Abaixo segue em ordem os itens que irei estudar e implementar:
+
+> 📕 Data provider component
 
 This template should help get you started developing with Vue 3 in Vite.
 
