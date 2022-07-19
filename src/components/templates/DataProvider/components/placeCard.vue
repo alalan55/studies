@@ -33,7 +33,7 @@
 <script>
 export default {
   props: {
-    info: { type: Object },
+    info: [Object, String],
     loading: { type: Boolean, default: false },
   },
   setup() {
