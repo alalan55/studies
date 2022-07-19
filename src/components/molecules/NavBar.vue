@@ -32,14 +32,32 @@ export default {
   align-items: center;
   padding: 0 $s1;
   justify-content: space-between;
-  -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.09);
-  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.09);
-  background: white;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.01);
 
   &__logo {
     span {
       font-weight: normal;
       font-size: 1.1em;
+    }
+  }
+  &__icon {
+    figure {
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+
+      img {
+        width: 90%;
+        height: 90%;
+        object-fit: contain;
+      }
     }
   }
 }
