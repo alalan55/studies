@@ -5,17 +5,22 @@
     </div>
     <div v-if="show" class="list-item__body">
       <ul>
-        <li v-for="(item, i) in props.info.rows" :key="i">
+        <li
+          v-for="(item, i) in props.info.rows"
+          :key="i"
+          draggable="true"
+          @dragstart="startDrag($event, item)"
+        >
           {{ item.name }}
         </li>
       </ul>
     </div>
-    <!-- {{ props }} -->
   </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
+const emits = defineEmits(["startDraggin"]);
 const props = defineProps({
   info: { type: Object, default: null },
 });
@@ -23,6 +28,12 @@ const props = defineProps({
 const show = ref(false);
 
 const toggleShow = () => (show.value = !show.value);
+
+const startDrag = (event, item) => {
+  const id = (Math.random() + 1).toString(36).substring(7);
+  item.id = id;
+  emits("startDraggin", event, item);
+};
 </script>
 
 <style lang="scss" scoped>
@@ -39,6 +50,7 @@ const toggleShow = () => (show.value = !show.value);
 
       li {
         list-style: none;
+        cursor: pointer;
       }
     }
   }

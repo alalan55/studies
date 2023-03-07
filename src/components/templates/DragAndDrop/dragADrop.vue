@@ -52,6 +52,21 @@ const columns = ref([
     ],
   },
 ]);
+const droped = ref([]);
+const startDrag = (event, item) => {
+  //   console.log(event, item);
+  event.dataTransfer.dropEffect = "move";
+  event.dataTransfer.effectAllowed = "move";
+  event.dataTransfer.setData("itemID", item.id);
+};
+const onDrop = (event) => {
+  const itemID = event.dataTransfer.getData("itemID");
+  const item = columns.value.find((item) => item.rows.find((row) => row.id == itemID));
+  droped.value.push(item)
+//   console.log(itemID, item);
+  //   const item = arrayData.value.find((item) => item.id == itemID);
+  //   item.state = state;
+};
 </script>
 
 <template>
@@ -64,10 +79,27 @@ const columns = ref([
             :key="i"
             :info="item"
             class="list__item"
+            @startDraggin="startDrag"
           />
         </div>
       </div>
-      <div class="content__right"></div>
+      <div
+        class="content__right"
+        @drop="onDrop($event)"
+        @dragenter.prevent
+        @dragover.prevent
+      >
+        <div class="content__right__list">
+          <div
+            v-for="(item, i) in droped"
+            :key="i"
+            class="content__right__list__item"
+          >
+          {{ item.name }}</div>
+
+          <!-- VERIFICAR, POIS ELE ESTÁ CLONANDO O ID QUANDO EU ARRASTO O MESMO ELEMENTO -->
+        </div>
+      </div>
     </div>
   </templateWrapper>
 </template>
@@ -79,17 +111,18 @@ const columns = ref([
   display: flex;
   & > div {
     flex: 1 1 500px;
-    border: 1px solid;
+    // border: 1px solid;
   }
 
   &__left {
     .list {
       &__item {
-        border-bottom: 1px solid;
+        // border-bottom: 1px solid;
       }
     }
   }
   &__right {
+    background: rgb(236, 236, 236);
   }
 }
 </style>
