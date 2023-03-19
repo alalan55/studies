@@ -21,9 +21,7 @@
           <span> <strong>Rua:</strong> {{ info.street_address }} </span>
         </li>
         <li class="item">
-          <span>
-            <strong>Endereço completo:</strong> {{ info.full_address }}
-          </span>
+          <span> <strong>Endereço completo:</strong> {{ info.full_address }} </span>
         </li>
       </ul>
     </div>

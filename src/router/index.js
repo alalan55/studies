@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import DataProviderRoutes from "../components/templates/DataProvider/router";
+import DragAndDropRoutes from "../components/templates/DragAndDrop/router";
 const layout = () => import("../components/layouts/templateLayout.vue");
 
 const router = createRouter({
@@ -9,6 +10,10 @@ const router = createRouter({
     {
       path: "/data-provider",
       ...DataProviderRoutes,
+    },
+    {
+      path: "/drag-and-drop",
+      ...DragAndDropRoutes,
     },
     {
       component: layout,
