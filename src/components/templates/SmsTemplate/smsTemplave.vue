@@ -20,6 +20,7 @@ const msg = ref("");
 
         <span v-if="msg" class="box-msg">
           {{ msg }}
+
         </span>
       </figure>
     </div>
@@ -80,7 +81,7 @@ const msg = ref("");
         top: 120px;
         left: 160px;
         max-width: 170px;
-        // width: 100%;
+        width: 100%;
         max-height: 280px;
         border-radius: 20px;
         background: #151925;
@@ -89,6 +90,7 @@ const msg = ref("");
         padding: .8rem 0.7rem;
         font-size: 0.9rem;
         overflow-y: auto;
+        word-break:break-all;
 
         &::-webkit-scrollbar {
           width: 5px;
