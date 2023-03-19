@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import SmsTemplateRoutes from "../components/templates/SmsTemplate/router";
 import DataProviderRoutes from "../components/templates/DataProvider/router";
+import DragAndDropRoutes from "../components/templates/DragAndDrop/router";
 const layout = () => import("../components/layouts/templateLayout.vue");
 
 const router = createRouter({
@@ -14,6 +15,10 @@ const router = createRouter({
     {
       path: "sms-template",
       ...SmsTemplateRoutes,
+    },
+    {
+      path: "/drag-and-drop",
+      ...DragAndDropRoutes,
     },
     {
       component: layout,

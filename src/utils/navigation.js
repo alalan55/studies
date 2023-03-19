@@ -14,4 +14,9 @@ export const navigation = [
     path: "/data-provider",
     namePath: "dataProvider",
   },
+  {
+    title: "Drag and Drop",
+    path: "/drag-and-drop",
+    namePath: "dragAndDropPage",
+  },
 ];
