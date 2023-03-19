@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
+import SmsTemplateRoutes from "../components/templates/SmsTemplate/router";
 import DataProviderRoutes from "../components/templates/DataProvider/router";
 const layout = () => import("../components/layouts/templateLayout.vue");
 
@@ -9,6 +10,10 @@ const router = createRouter({
     {
       path: "/data-provider",
       ...DataProviderRoutes,
+    },
+    {
+      path: "sms-template",
+      ...SmsTemplateRoutes,
     },
     {
       component: layout,

@@ -4,6 +4,11 @@ export const navigation = [
     path: "/",
     namePath: "home",
   },
+    {
+    title: "SMS template",
+    path: "/sms-template",
+    namePath: "smsTemplate",
+  },
   {
     title: "Data provider",
     path: "/data-provider",
