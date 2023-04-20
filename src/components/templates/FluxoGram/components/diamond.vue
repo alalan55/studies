@@ -22,9 +22,17 @@ export default {
 </script>
 <template>
   <div class="diamond">
-    <div class="diamond__content">
-      <div class="diamond__content__no-rotate">
-        <span> {{ props.info.type }} - {{ props.info.id }}</span>
+    <div class="diamond__wrapper">
+      <div
+        class="diamond__wrapper__top-content"
+        :style="{ top: '-' + props.info.y + 'px' }"
+      >
+        Some things
+      </div>
+      <div class="diamond__content">
+        <div class="diamond__content__no-rotate">
+          <span> {{ props.info.type }} - {{ props.info.id }}</span>
+        </div>
       </div>
     </div>
     <div class="diamond--actions">
@@ -46,6 +54,26 @@ export default {
   align-items: center;
   gap: $s1;
   //   margin: 0 1rem;
+
+  &__wrapper {
+    // border: 1px solid;
+    position: relative;
+    // border: 1px solid;
+    // display: flex;
+    // flex-direction: column;
+    // align-items: flex-end;
+    // justify-content: space-between;
+    // juys
+    &__top-content {
+      // border: 5px solid;
+      position: absolute;
+      left: 50%;
+      // top: -50px;
+    }
+    & > div {
+      border: 1px solid;
+    }
+  }
   &__content {
     background: $blue-2;
     border-radius: 10px;

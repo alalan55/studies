@@ -22,14 +22,41 @@ const verifyIsLastChild = (id) => {
   return LAST_ELEMENT.id == id;
 };
 
-const createNode = (node, typeNode) => {
+const verifyLastDiamondPosition = (type) => {
+  let POS_Y = 0;
+  const PEXELS = 70
+  if (type == 2) {
+    let LAST = null;
+    // VERIFICAR SE JÁ EXISTE NO ARRAY ALGUM CARA QUE É DO TIPO 2
+    const SOME_DIAMOND = nodes.value.some((data) => data.nodeType == 2);
+    // SE NÃO EXISTIR, O VALOR INICIAL VAI SER IGUAL A 50
+    if (!SOME_DIAMOND) POS_Y = PEXELS;
+    // SE EXISTIR, O VALOR VAI SER O VALOR DO ULTIMO CARA ENCONTRADO + 50
+    if (SOME_DIAMOND) {
+      for (let i = nodes.value.length - 1; i >= 0; i--) {
+        if (nodes.value[i].nodeType == type) {
+          LAST = nodes.value[i];
+          break;
+        }
+      }
+
+      POS_Y = LAST.y + PEXELS;
+    }
+  }
+
+  return POS_Y;
+};
+
+const createNode = async (node, typeNode) => {
+  const POS_Y = await verifyLastDiamondPosition(typeNode.type);
+
   const newNode = {
     id: nodes.value.length + 1,
     nextId: null,
     type: "node",
     nodeType: typeNode.type,
     x: 0,
-    y: 0,
+    y: POS_Y,
     text: "",
     conections: [],
   };
@@ -46,6 +73,10 @@ const createNode = (node, typeNode) => {
     <div class="flow__title">
       <h1>Página de fluxograma</h1>
     </div>
+    <!-- <pre>
+            {{ nodes }}
+        </pre
+    > -->
 
     <div class="flow__list">
       <div v-for="(item, i) in nodes" :key="i" class="flow__list__item">
