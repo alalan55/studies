@@ -2,7 +2,7 @@
   <template-wrapper title="Data provider" :description="text">
     <!-- IMPORTAÇÃO DO COMPONENTE PROVEDOR E CHAMA O SLOT DEFAULT CRIADO DESESTRUTURANDO OS DADOS RECEBIDOS -->
     <provider-component :url="url" v-slot="{ res: response, loading }" ref="provider">
-      <place-card :info="response" :loading="loading" />
+      <place-card :info=" response" :loading="loading" />
     </provider-component>
   </template-wrapper>
 
