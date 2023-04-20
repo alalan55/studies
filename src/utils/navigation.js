@@ -19,4 +19,9 @@ export const navigation = [
     path: "/drag-and-drop",
     namePath: "dragAndDropPage",
   },
+  {
+    title: "Fluxograma",
+    path: "/fluxogram",
+    namePath: "fluxoGramPage",
+  },
 ];

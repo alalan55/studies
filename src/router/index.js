@@ -3,6 +3,7 @@ import HomeView from "../views/HomeView.vue";
 import SmsTemplateRoutes from "../components/templates/SmsTemplate/router";
 import DataProviderRoutes from "../components/templates/DataProvider/router";
 import DragAndDropRoutes from "../components/templates/DragAndDrop/router";
+import FluxoGramRoutes from "../components/templates/FluxoGram/router";
 const layout = () => import("../components/layouts/templateLayout.vue");
 
 const router = createRouter({
@@ -19,6 +20,10 @@ const router = createRouter({
     {
       path: "/drag-and-drop",
       ...DragAndDropRoutes,
+    },
+    {
+      path: "/fluxogram",
+      ...FluxoGramRoutes,
     },
     {
       component: layout,
