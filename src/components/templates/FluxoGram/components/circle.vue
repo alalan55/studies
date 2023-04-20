@@ -17,15 +17,15 @@ const createNode = (typeNode) => emit("createNode", props.info, typeNode);
 </script>
 <script>
 export default {
-  name: "Rect",
+  name: "Circle",
 };
 </script>
 <template>
-  <div class="rect">
-    <div class="rect__content">
+  <div class="circle">
+    <div class="circle__content">
       <span> {{ props.info.type }} - {{ props.info.id }}</span>
     </div>
-    <div class="rect--actions">
+    <div class="circle--actions">
       <div v-if="isLastChild" class="plus">
         <div class="line-plus"></div>
         <PlusBtn @clicked="createNode" />
@@ -39,15 +39,15 @@ export default {
 <style lang="scss" scoped>
 @import "@/assets/scss/main.scss";
 
-.rect {
+.circle {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   &__content {
     background: $blue-2;
-    border-radius: 10px;
-    width: 150px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;

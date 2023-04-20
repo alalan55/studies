@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue";
+import Circle from "./components/circle.vue";
 import Rect from "./components/rect.vue";
 
 const nodes = ref([
@@ -20,12 +21,12 @@ const verifyIsLastChild = (id) => {
   return LAST_ELEMENT.id == id;
 };
 
-const createNode = (node) => {
+const createNode = (node, typeNode) => {
   const newNode = {
     id: nodes.value.length + 1,
     nextId: null,
     type: "node",
-    nodeType: 0,
+    nodeType: typeNode.type,
     x: 0,
     y: 0,
     text: "",
@@ -49,6 +50,13 @@ const createNode = (node) => {
       <div v-for="(item, i) in nodes" :key="i" class="flow__list__item">
         <template v-if="item.nodeType == 0">
           <Rect
+            :info="item"
+            :isLastChild="verifyIsLastChild(item.id)"
+            @createNode="createNode"
+          />
+        </template>
+        <template v-if="item.nodeType == 1">
+          <Circle
             :info="item"
             :isLastChild="verifyIsLastChild(item.id)"
             @createNode="createNode"
