@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import Circle from "./components/circle.vue";
+import Diamond from "./components/diamond.vue";
 import Rect from "./components/rect.vue";
 
 const nodes = ref([
@@ -57,6 +58,13 @@ const createNode = (node, typeNode) => {
         </template>
         <template v-if="item.nodeType == 1">
           <Circle
+            :info="item"
+            :isLastChild="verifyIsLastChild(item.id)"
+            @createNode="createNode"
+          />
+        </template>
+        <template v-if="item.nodeType == 2">
+          <Diamond
             :info="item"
             :isLastChild="verifyIsLastChild(item.id)"
             @createNode="createNode"
